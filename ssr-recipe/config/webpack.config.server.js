@@ -143,7 +143,11 @@ module.exports = {
         modules: ['node_modules'],
         extensions: ['.jsx', '.js']
     },
-    externals: [nodeExternals()],
+    externals: [
+        nodeExternals({
+            allowlist: [/@babel/],
+        }),
+    ],
     plugins: [
         new webpack.DefinePlugin(env.stringified) // 환경변수 주입해 줍니다.
     ]
